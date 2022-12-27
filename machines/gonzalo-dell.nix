@@ -43,7 +43,7 @@
   #   # programs.direnv.enable = true;
   #   # programs.direnv.nix-direnv.enable = true;
   #   # Also call `echo "use nix" >> .envrc && direnv allow`
-  };
+  # };
   # Enable auto upgrades
   # system.autoUpgrade.enable = true;
 
