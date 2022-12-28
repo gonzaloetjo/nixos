@@ -6,22 +6,22 @@
     latest.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     home-manager = {
-      url = github:nix-community/home-manager;
-      inputs.latest.follows = "latest";
+      url = github:nix-community/home-manager/release-22.05;
+      inputs.stable.follows = "stable";
     };
   };
 
-  outputs = inputs @ { self, stable, latest, home-manager, ... }:
+  outputs = { self, stable, latest, home-manager, ... }@inputs:
     let
       # stateVersion = "22.05";
       user = "getse";
       system = "x86_64-linux";
-      pkgs = import latest {
+      pkgs = import stable {
           inherit system;
           config.allowUnfree = true;
         };
 
-      lib = latest.lib;
+      lib = stable.lib;
 
     in {
       nixosConfigurations = {

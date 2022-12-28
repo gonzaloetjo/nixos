@@ -1,23 +1,18 @@
-{ config, pkgs, ...}:
+{ config, pkgs, latest...}: {
 
-let
-  baseconfig = { allowUnfree = true; };
-  # unstable = import <nixos-unstable> { config = baseconfig; }; # needs to add nixos-unstable to channels: 'sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable'
-in {
-  environment.systemPackages = with pkgs; [
-    unstable.docker
-    unstable.docker-compose
-    unstable.jetbrains.pycharm-professional
-    unstable.jetbrains.webstorm
-    unstable.jetbrains.datagrip
-    unstable.jetbrains.idea-ultimate
-    unstable.jetbrains.idea-community
-    unstable.jenkins
-    unstable.eclipses.eclipse-sdk
-    unstable.eclipses.eclipse-java
-    unstable.teams
+  environment.systemPackages = with latest; [
+    latest.docker
+    latest.docker-compose
+    latest.jetbrains.pycharm-professional
+    latest.jetbrains.webstorm
+    latest.jetbrains.datagrip
+    latest.jetbrains.idea-ultimate
+    latest.jetbrains.idea-community
+    latest.jenkins
+    latest.eclipses.eclipse-sdk
+    latest.eclipses.eclipse-java
+    latest.teams
     # unstable.edgedb
   ];
 }
-
 
