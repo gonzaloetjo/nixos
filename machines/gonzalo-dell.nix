@@ -5,7 +5,7 @@
     [ # Include the results of the hardware scan.
       ./gonzalo-dell-hardware.nix
       ../cachix.nix
-      <home-manager/nixos>
+      # <home-manager/nixos>
       ../declaratives/unstable.nix
       #../declaratives/virtualbox.nix
       ../system/commons.nix
