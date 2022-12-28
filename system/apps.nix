@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
 
   environment.systemPackages = with pkgs; [
     ansible
@@ -54,7 +54,7 @@
     python310
     zoom
     zip
-    
+
     # Ex unstable ones:
     docker
     docker-compose
@@ -70,6 +70,9 @@
     # gnome.dconf-editor
     # sublime-merge
     # sublime4  
+
+    # Devenv
+    inputs.devenv.packages.x86_64-linux.devenv
   ];
 
   

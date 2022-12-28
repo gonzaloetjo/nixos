@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     # latest.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    devenv.url = "github:cachix/devenv/v0.5";
 
     home-manager = {
       url = github:nix-community/home-manager/release-22.11;
@@ -11,7 +12,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, devenv, ... }@inputs:
     let
       user = "getse";
       system = "x86_64-linux";

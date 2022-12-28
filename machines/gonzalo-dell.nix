@@ -4,7 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./gonzalo-dell-hardware.nix
-      ../cachix.nix
+      # ../cachix.nix
       # <home-manager/nixos>
       #../declaratives/unstable.nix
       #../declaratives/virtualbox.nix
