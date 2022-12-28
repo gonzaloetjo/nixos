@@ -40,7 +40,7 @@
                   ./home/vscode.nix
                   ./home/zsh.nix
                 ];
-                home.stateVersion = "22.05";
+                home.stateVersion = "21.11";
               };
             }
           ];
