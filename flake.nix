@@ -16,16 +16,11 @@
       # stateVersion = "22.05";
       user = "getse";
       system = "x86_64-linux";
-      pkgs = import [ 
-        latest {
+      pkgs = import latest {
           inherit system;
           config.allowUnfree = true;
-        }
-        # latest {
-        #   inherit system;
-        #   config.allowUnfree = true;
-        # }
-      ];
+        };
+
       lib = latest.lib;
 
     in {
