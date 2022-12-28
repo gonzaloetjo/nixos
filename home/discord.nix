@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
     home.packages = with pkgs; [ discord ];
     nixpkgs.overlays = [
      (self: super: {

@@ -27,3 +27,4 @@ Tools to transition to flake:
 
 - https://blog.nobbz.dev/posts/2022-12-12-getting-inputs-to-modules-in-a-flake/
 - https://www.youtube.com/watch?v=AGVXJ-TIv3Y
+- 

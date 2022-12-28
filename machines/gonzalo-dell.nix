@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports =
@@ -10,7 +10,7 @@
       #../declaratives/virtualbox.nix
       ../system/commons.nix
       ../system/apps.nix
-      #../system/unstable-apps.nix
+      # ../system/unstable-apps.nix
       # ../system/fonts.nix
       ../modules/virtualization.nix
 
