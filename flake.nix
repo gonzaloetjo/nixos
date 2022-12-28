@@ -2,11 +2,11 @@
   description = "Trying out flake";
 
   inputs = {
-    stable.url = "github:NixOS/nixpkgs/nixos-22.05";
+    stable.url = "github:NixOS/nixpkgs/nixos-22.11";
     latest.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     home-manager = {
-      url = github:nix-community/home-manager/release-22.05;
+      url = github:nix-community/home-manager/release-22.11;
       inputs.stable.follows = "stable";
     };
   };

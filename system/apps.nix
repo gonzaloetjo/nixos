@@ -49,7 +49,7 @@
     wget
     whatsapp-for-linux
     yarn
-    postman
+    # postman
     python39
     python310
     zoom
