@@ -3,16 +3,16 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    # latest.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    stable.url = "github:NixOS/nixpkgs/nixos-22.11";
     devenv.url = "github:cachix/devenv/v0.5";
 
     home-manager = {
-      url = github:nix-community/home-manager/release-22.11;
+      url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, devenv, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, devenv, stable, ... }@inputs:
     let
       user = "getse";
       system = "x86_64-linux";
@@ -34,6 +34,7 @@
             nix.nixPath = ["nixpkgs=/etc/nix/inputs/nixpkgs"];
             }
             ./configuration.nix 
+            ./cachix.nix
             home-manager.nixosModules.home-manager {
               home-manager = {
                 extraSpecialArgs = { inherit inputs; };
