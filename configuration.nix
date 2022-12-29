@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, options, ... }: {
+{ config, pkgs, ... }: {
   imports =
     [
     	./machines/gonzalo-dell.nix

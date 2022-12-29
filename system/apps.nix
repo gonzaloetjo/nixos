@@ -8,6 +8,7 @@
     chromium
     curl
     direnv
+    exa
     file                   # View information about a file
     flatpak
     firefox

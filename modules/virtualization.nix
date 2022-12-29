@@ -34,7 +34,7 @@
   192.168.56.16 edge-01.tdp edge-01
   '';
 
-  # # Adding extra host names for CDP configuration
+  # # Adding extra host names for Cloudera configuration
   # networking.extraHosts = 
 	# ''
   #   192.168.56.10 worker-01.tdp

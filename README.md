@@ -75,9 +75,34 @@ setfacl -Rm u:[user]:rwx /etc/nixos/
 code /etc/nixos
 ```
 
+## Tutorials
+
+- How to manage channels and paths in flakes: https://ayats.org/blog/channels-to-flakes
+  - Example: https://github.com/viperML/nix-common/blob/master/modules/nixos/channels-to-flakes.nix
+  - Example: https://github.com/viperML/nix-common/blob/master/modules/home-manager/channels-to-flakes.nix
+- How to manage multiple inputs in flakes: https://blog.nobbz.dev/posts/2022-12-12-getting-inputs-to-modules-in-a-flake/
+- How to manage multiple inputs in flakes with overlays: https://github.com/nix-community/home-manager/issues/1538
+- How to start and understand flakes: https://www.youtube.com/watch?v=AGVXJ-TIv3Y
+
 ## Examples
 
 * https://github.com/michaelpj/nixos-config
 * https://github.com/JorelAli/nixos/blob/master/configuration.nix
 * https://github.com/NobbZ/nixos-config
 * https://github.com/MatthiasBenaets/
+* https://github.com/viperML
+
+
+## Additional Concepts
+
+Comment:
+```
+you need an evaluated copy of nixpkgs... in other words, a pkgs value. the nixpkgs flake provides one under legacyPackages.${system}, but you can instead import the default.nix at the root of the flake's directory just like you did pre-flakes with import <nixpkgs> {}
+[1:32 AM]
+import nixpkgs works like import <nixpkgs> did because the flake input argument has an outPath attribute, which gets used for automatic string conversion. It points to the root directory of the flake in question in the nix store, so you're importing the default.nix in that directory, just like in the NIX_PATH lookup case
+
+```
+
+### Impurity:
+
+- https://github.com/NixOS/nix/pull/6227

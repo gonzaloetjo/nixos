@@ -29,6 +29,10 @@
           inherit system;
           specialArgs = { inherit user inputs;};
           modules = [ 
+            {
+            environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
+            nix.nixPath = ["nixpkgs=/etc/nix/inputs/nixpkgs"];
+            }
             ./configuration.nix 
             home-manager.nixosModules.home-manager {
               home-manager = {
