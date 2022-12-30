@@ -18,8 +18,9 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
           inherit system;
-          config.allowUnfree = true;
         };
+
+      allowUnfree = { nixpkgs.config.allowUnfree = true; };  
 
       unstable = import latest {
         inherit system;
@@ -40,8 +41,8 @@
             nix.registry.nixpkgs.flake = nixpkgs;
             nix.registry.latest.flake = latest;
             }
+            allowUnfree
             ./configuration.nix 
-            ./cachix.nix
             home-manager.nixosModules.home-manager {
               home-manager = {
                 extraSpecialArgs = { inherit inputs; };
