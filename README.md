@@ -113,6 +113,11 @@ import nixpkgs works like import <nixpkgs> did because the flake input argument 
 
 ```
 
+## TODO
+
+[] Move registry, nixPaths, homemanager to different modules. Can try out flakes.parts as well.
+[] Make cachix work
+[] Move pkgs configuration to modules
 
 ### Impurity:
 
