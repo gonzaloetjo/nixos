@@ -57,17 +57,17 @@
     zip
 
     # Ex unstable ones:
-    docker
-    docker-compose
-    # jetbrains.pycharm-professional
-    # jetbrains.webstorm
-    # jetbrains.datagrip
-    # jetbrains.idea-ultimate
-    # jetbrains.idea-community
-    # jenkins
-    eclipses.eclipse-sdk
-    eclipses.eclipse-java
-    teams
+    # docker
+    # docker-compose
+    # # jetbrains.pycharm-professional
+    # # jetbrains.webstorm
+    # # jetbrains.datagrip
+    # # jetbrains.idea-ultimate
+    # # jetbrains.idea-community
+    # # jenkins
+    # eclipses.eclipse-sdk
+    # eclipses.eclipse-java
+    # teams
     # gnome.dconf-editor
     # sublime-merge
     # sublime4  

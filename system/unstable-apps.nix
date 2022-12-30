@@ -1,18 +1,19 @@
-{ config, pkgs, inputs, ...}: 
+{ config, pkgs, inputs, unstable, ...}: 
 
   { 
     environment.systemPackages = [
-      inputs.latest.legacyPackages.${pkgs.system}.docker
-      inputs.latest.legacyPackages.${pkgs.system}.docker-compose
-      # inputs.latest.legacyPackages.${pkgs.system}.jetbrains.pycharm-professional
-      # inputs.latest.legacyPackages.${pkgs.system}.jetbrains.webstorm
-      # inputs.latest.legacyPackages.${pkgs.system}.jetbrains.datagrip
-      # inputs.latest.legacyPackages.${pkgs.system}.jetbrains.idea-ultimate
-      # inputs.latest.legacyPackages.${pkgs.system}.jetbrains.idea-community
-      # inputs.latest.legacyPackages.${pkgs.system}.jenkins
-      inputs.latest.legacyPackages.${pkgs.system}.eclipses.eclipse-sdk
-      inputs.latest.legacyPackages.${pkgs.system}.eclipses.eclipse-java
-      inputs.latest.legacyPackages.${pkgs.system}.teams
+      unstable.docker
+      unstable.docker-compose
+      unstable.jetbrains.pycharm-professional
+      unstable.jetbrains.webstorm
+      unstable.jetbrains.datagrip
+      unstable.jetbrains.idea-ultimate
+      unstable.jetbrains.idea-community
+      unstable.jenkins
+      unstable.eclipses.eclipse-sdk
+      unstable.eclipses.eclipse-java
+      unstable.teams
+      # latest.legacyPackages.${pkgs.system}.docker
       # unstable.edgedb
     ];
   }

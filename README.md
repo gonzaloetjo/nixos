@@ -26,7 +26,7 @@ Run `nixos-rebuild` to apply changes.
 
 ```bash
 sudo nixos-rebuild switch --flake .#{hostname}
-````
+```
 
 ## Tools to transition to flake:
 
@@ -51,6 +51,10 @@ flake.nix
  │      └─ declaratives/
  │      │    ├─ unstable.nix # to make unstable available
  │      │    └─ python.nix # not used
+ │
+ ├─ ./cachix.nix
+ ├─ ./cachix/
+ │   └─getseadaltas.nix
  │ 
  └─ ./home
      ├─ zsh.nix
@@ -108,6 +112,7 @@ you need an evaluated copy of nixpkgs... in other words, a pkgs value. the nixpk
 import nixpkgs works like import <nixpkgs> did because the flake input argument has an outPath attribute, which gets used for automatic string conversion. It points to the root directory of the flake in question in the nix store, so you're importing the default.nix in that directory, just like in the NIX_PATH lookup case
 
 ```
+
 
 ### Impurity:
 
