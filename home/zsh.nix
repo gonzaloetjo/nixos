@@ -2,7 +2,7 @@
   programs.zsh = {
     enable = true;
     initExtra = ''
-    #eval "$(direnv hook zsh)"
+    eval "$(direnv hook zsh)"
     [ -f ~/.secrets ] && . ~/.secrets
     # Preserve the current directory of the shell across terminals
     # Note, tried `programs.zsh.vteIntegration` without sucess
