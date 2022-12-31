@@ -1,6 +1,3 @@
-#  General Home-manager configuration
-
-
 # Gonzalo NixOS configuration
 
 
@@ -27,6 +24,7 @@ Run `nixos-rebuild` to apply changes.
 ```bash
 sudo nixos-rebuild switch --flake .#{hostname}
 ```
+
 
 ## Tools to transition to flake:
 
@@ -98,6 +96,7 @@ code /etc/nixos
 - [] Make cachix work to cache build.
 - [] Move pkgs configuration to modules, as it's evil to pass it to nixosSystem:
   https://discourse.nixos.org/t/allowunfree-predicate-does-not-apply-to-self-packages/21734/37
+- [] Update initial part of README.md
 
 
 
