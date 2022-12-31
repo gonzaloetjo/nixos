@@ -63,17 +63,6 @@ flake.nix
      └─ git.nix
 ```
 
-## Issues:
-
-Currently can't solve having some legacy Packages installed through different channels. 
-
-- Option 1: Solve this are either overlays like before (without taking certain advantages of flakes). This might help: https://github.com/nix-community/home-manager/issues/1538
-- Option 2: Find a way to adapt the following instructions: https://blog.nobbz.dev/posts/2022-12-12-getting-inputs-to-modules-in-a-flake/
-
-At the moment coundn't find a way to bypass the issue of telling the file unstable-apps.nix that it is allowed to evaluate and build unfree packages.
-
-
-
 ```bash
 setfacl -Rm u:[user]:rwx /etc/nixos/
 code /etc/nixos
@@ -105,10 +94,11 @@ code /etc/nixos
 
 ## TODO
 
-[ ] Move registry, nixPaths, homemanager to different modules. Can try out flakes.parts as well.
-[ ] Make cachix work
-[ ] Move pkgs configuration to modules, as it's evil to pass it to nixosSystem:
+- [] Move registry, nixPaths, homemanager to different modules. Can try out flakes.parts as well.
+- [] Make cachix work to cache build.
+- [] Move pkgs configuration to modules, as it's evil to pass it to nixosSystem:
   https://discourse.nixos.org/t/allowunfree-predicate-does-not-apply-to-self-packages/21734/37
+
 
 
 
