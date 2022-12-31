@@ -92,11 +92,11 @@ code /etc/nixos
 
 ## TODO
 
-- [] Move registry, nixPaths, homemanager to different modules. Can try out flakes.parts as well.
-- [] Make cachix work to cache build.
-- [] Move pkgs configuration to modules, as it's evil to pass it to nixosSystem:
+- [ ] Move registry, nixPaths, homemanager to different modules. Can try out flakes.parts as well.
+- [ ] Make cachix work to cache build.
+- [ ] Move pkgs configuration to modules, as it's evil to pass it to nixosSystem:
   https://discourse.nixos.org/t/allowunfree-predicate-does-not-apply-to-self-packages/21734/37
-- [] Update initial part of README.md
+- [ ] Update initial part of README.md
 
 
 
