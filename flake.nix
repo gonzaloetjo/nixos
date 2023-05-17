@@ -31,6 +31,36 @@
 
     in {
       nixosConfigurations = {
+        "gonzalo-tuxedo" = lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit user inputs unstable; };
+          modules = [
+            {
+              environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
+              nix.nixPath = ["nixpkgs=/etc/nix/inputs/nixpkgs"];
+              nix.registry.nixpkgs.flake = nixpkgs;
+              nix.registry.latest.flake = latest;
+            }
+            allowUnfree
+            ./tuxedo-configuration.nix 
+            home-manager.nixosModules.home-manager {
+              home-manager = {
+                extraSpecialArgs = { inherit inputs; };
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users."${user}" = {
+                  imports = [
+                    ./home/discord.nix
+                    ./home/git.nix
+                    ./home/vscode.nix
+                    ./home/zsh.nix
+                  ];
+                  home.stateVersion = "22.11";
+                };
+              };
+            }
+          ];
+        };
         "gonzalo-dell" = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit user inputs unstable;};
