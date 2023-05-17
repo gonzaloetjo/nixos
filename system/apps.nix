@@ -2,9 +2,8 @@
 
   environment.systemPackages = with pkgs; [
     ansible
-    atom
+    # atom
     brave
-    cachix
     chromium
     curl
     direnv
@@ -28,6 +27,7 @@
     libreoffice
     neovim
     nodejs
+    # nodenv
     ntp
     maven
     marktext
@@ -51,8 +51,10 @@
     whatsapp-for-linux
     yarn
     # postman
-    python39
-    python310
+    # python39
+    # python310
+    # python310.venv
+    # python310.pip
     zoom
     zip
 

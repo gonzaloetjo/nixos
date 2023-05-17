@@ -25,13 +25,13 @@
   
   # Extra host names for TDP configuration
   networking.extraHosts = ''
-  192.168.56.10 worker-01.tdp worker-01
-  192.168.56.11 worker-02.tdp worker-02
-  192.168.56.12 worker-03.tdp worker-03
-  192.168.56.13 master-01.tdp master-01
-  192.168.56.14 master-02.tdp master-02
-  192.168.56.15 master-03.tdp master-03
-  192.168.56.16 edge-01.tdp edge-01
+  192.168.56.14 worker-01.tdp worker-01
+  192.168.56.15 worker-02.tdp worker-02
+  192.168.56.16 worker-03.tdp worker-03
+  192.168.56.11 master-01.tdp master-01
+  192.168.56.12 master-02.tdp master-02
+  192.168.56.13 master-03.tdp master-03
+  192.168.56.10 edge-01.tdp edge-01
   '';
 
   # # Adding extra host names for Cloudera configuration
