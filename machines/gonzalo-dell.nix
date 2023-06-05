@@ -22,13 +22,20 @@
     hostName = "gonzalo-dell"; # Define your hostname.  ("") to allow the DHCP server to provide the host name. 
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.getse = {
-    isNormalUser = true;
-    initialPassword = "secret";
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.zsh;
-  };
+  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+  # Per-interface useDHCP will be mandatory in the future, so this generated config
+  # replicates the default behaviour.
+  networking.useDHCP = false;
+  networking.interfaces.wlp59s0.useDHCP = true;
+  networking.networkmanager.enable = true;
+
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.wayland = false; # Needed to make teams work on Nixos. More info here:https://discourse.nixos.org/t/configuring-x11-for-gnome/19113/2
+  services.xserver.desktopManager.gnome.enable = true;
+  environment.gnome.excludePackages = [
+      pkgs.gnome.cheese pkgs.gnome-photos pkgs.gnome.gnome-music pkgs.epiphany pkgs.evince pkgs.gnome.gnome-characters pkgs.gnome.totem pkgs.gnome.tali pkgs.gnome.iagno pkgs.gnome.hitori pkgs.gnome.atomix pkgs.gnome-tour  pkgs.gnome.geary
+  ];
 
   # home-manager.users.getse = { pkgs, config, ... }: {
 

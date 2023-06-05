@@ -2,9 +2,9 @@
   description = "Trying out flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     latest.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    devenv.url = "github:cachix/devenv/v0.5";
+    devenv.url = "github:cachix/devenv/v0.6.2";
 
     home-manager = {
       url = github:nix-community/home-manager;
@@ -42,7 +42,7 @@
               nix.registry.latest.flake = latest;
             }
             allowUnfree
-            ./tuxedo-configuration.nix 
+            ./configuration.nix 
             home-manager.nixosModules.home-manager {
               home-manager = {
                 extraSpecialArgs = { inherit inputs; };
@@ -55,7 +55,7 @@
                     ./home/vscode.nix
                     ./home/zsh.nix
                   ];
-                  home.stateVersion = "22.11";
+                  home.stateVersion = "23.05";
                 };
               };
             }

@@ -42,7 +42,7 @@ let normalUsers = builtins.filter(x: x.isNormalUser) config.users.users; in
     programs.dconf.enable = true;
 
     home-manager.users."${config.gnome-manager.user}" = { lib, ... } : {
-      home.stateVersion = "22.11";
+      home.stateVersion = "23.05";
 
       dconf.settings = {
         # Background settings
