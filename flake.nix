@@ -16,9 +16,16 @@
     let
       user = "getse";
       system = "x86_64-linux";
+
+      tuxedo-rs-overlay = self: super: {
+        tuxedo-rs = super.callPackage ./pkgs/tuxedo-rs/default.nix {};
+        tailor_gui = super.callPackage ./pkgs/tailor_gui/default.nix {};
+      };
+
       pkgs = import nixpkgs {
           inherit system;
-        };
+          overlays = [ tuxedo-rs-overlay ];
+      };
 
       allowUnfree = { nixpkgs.config.allowUnfree = true; };  
 
@@ -40,6 +47,7 @@
               nix.nixPath = ["nixpkgs=/etc/nix/inputs/nixpkgs"];
               nix.registry.nixpkgs.flake = nixpkgs;
               nix.registry.latest.flake = latest;
+              nixpkgs.overlays = [ tuxedo-rs-overlay ];
             }
             allowUnfree
             ./configuration.nix 
