@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     latest.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     devenv.url = "github:cachix/devenv/v0.6.2";
+    tuxedo-nixos.url = "github:blitz/tuxedo-nixos";
 
     home-manager = {
       url = github:nix-community/home-manager;
@@ -12,20 +13,20 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, devenv, latest, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, devenv, latest, tuxedo-nixos, ... }@inputs:
     let
       user = "getse";
       system = "x86_64-linux";
 
-      tuxedo-rs-overlay = self: super: {
-        tuxedo-rs = super.callPackage ./pkgs/tuxedo-rs/default.nix {};
-        tailor_gui = super.callPackage ./pkgs/tailor_gui/default.nix {};
-      };
+      # tuxedo-rs-overlay = self: super: {
+      #   tuxedo-rs = super.callPackage ./pkgs/tuxedo-rs/default.nix {};
+      #   tailor_gui = super.callPackage ./pkgs/tailor_gui/default.nix {};
+      # };
 
-      pkgs = import nixpkgs {
-          inherit system;
-          overlays = [ tuxedo-rs-overlay ];
-      };
+      # pkgs = import nixpkgs {
+      #     inherit system;
+      #     overlays = [ tuxedo-rs-overlay ];
+      # };
 
       allowUnfree = { nixpkgs.config.allowUnfree = true; };  
 
@@ -47,7 +48,14 @@
               nix.nixPath = ["nixpkgs=/etc/nix/inputs/nixpkgs"];
               nix.registry.nixpkgs.flake = nixpkgs;
               nix.registry.latest.flake = latest;
-              nixpkgs.overlays = [ tuxedo-rs-overlay ];
+              # nixpkgs.overlays = [ tuxedo-rs-overlay ];
+            }
+            # Tuxedo control center
+            tuxedo-nixos.nixosModules.default
+            {
+              hardware.tuxedo-control-center.enable = true;
+              # Specify the package
+              hardware.tuxedo-control-center.package = tuxedo-nixos.packages.x86_64-linux.default;
             }
             allowUnfree
             ./configuration.nix 

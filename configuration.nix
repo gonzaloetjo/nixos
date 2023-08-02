@@ -10,7 +10,7 @@
     [
     	./machines/gonzalo-tuxedo.nix
       ./cachix.nix
-      ./modules/tuxedo-rs.nix
+      # ./modules/tuxedo-rs.nix
     ];
 
 }

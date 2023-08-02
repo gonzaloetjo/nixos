@@ -27,6 +27,13 @@
     [ { device = "/dev/disk/by-uuid/5f9d6f75-78d1-40e0-97b4-f7dedff8c16f"; }
     ];
 
+  hardware.tuxedo-keyboard.enable = true;
+  boot.kernelParams = [
+    "tuxedo_keyboard.mode=0"
+    "tuxedo_keyboard.brightness=25"
+    "tuxedo_keyboard.color_left=0x0000ff"
+  ];
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
