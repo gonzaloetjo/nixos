@@ -50,23 +50,39 @@
     libinput.enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+    # Solution said to fix sleep issue in nixos discord. Didn't work.
+    # monitorSection = ''
+    #   Option "DPMS" "false"
+    # '';
   };
+
+  # Add the nvidia-offload script to system packages
+  # environment.systemPackages = [
+  #   (pkgs.writeShellScriptBin "nvidia-offload" ''
+  #     export __NV_PRIME_RENDER_OFFLOAD=1
+  #     export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+  #     export __GLX_VENDOR_LIBRARY_NAME=nvidia
+  #     export __VK_LAYER_NV_optimus=NVIDIA_only
+  #     exec "$@"
+  #   '')
+  # ];
 
   # Nvidia
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.latest;
     prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
+      sync.enable = true;
+      # offload = {
+      #   enable = true;
+      #   # enableOffloadCmd = true; # commented out as I'm not offloading https://nixos.wiki/wiki/Nvidia#Fix_graphical_corruption_on_suspend.2Fresume
+      # };
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
-    powerManagement = {
-      enable = true;
-      finegrained = true;
-    };
+    # powerManagement = {
+    #   enable = true;
+    #   finegrained = true;
+    # };
     nvidiaPersistenced = true;
     modesetting.enable = true;
   };
