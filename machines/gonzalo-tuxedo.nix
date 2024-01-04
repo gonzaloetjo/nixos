@@ -83,7 +83,7 @@
     #   enable = true;
     #   finegrained = true;
     # };
-    nvidiaPersistenced = true;
+    nvidiaPersistenced = false;
     modesetting.enable = true;
   };
 
