@@ -14,7 +14,7 @@
       unstable.jenkins
       # unstable.keybase-gui
       unstable.keybase
-      unstable.teams
+      # unstable.teams
 
       # latest.legacyPackages.${pkgs.system}.docker
       # unstable.edgedb

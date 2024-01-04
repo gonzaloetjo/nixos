@@ -47,7 +47,7 @@
     vim
     vlc
     wget
-    whatsapp-for-linux
+    # whatsapp-for-linux
     yarn
     # postman
     # python39

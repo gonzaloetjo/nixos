@@ -19,6 +19,8 @@
 
     # useful for certain programs
     nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnsupportedSystem = true;
+
 
     # Select internationalisation properties.
     i18n.defaultLocale = "en_US.UTF-8";
