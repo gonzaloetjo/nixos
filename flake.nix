@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     latest.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    devenv.url = "github:cachix/devenv/v0.6.2";
+    devenv.url = "github:cachix/devenv/v0.6.3";
     tuxedo-nixos.url = "github:blitz/tuxedo-nixos";
 
     home-manager = {

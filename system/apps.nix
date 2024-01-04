@@ -19,7 +19,6 @@
     gradle
     jdk8
     jq
-    keybase-gui
     kompose
     kubernetes
     kubectl
