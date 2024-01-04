@@ -12,13 +12,16 @@
       unstable.jetbrains.idea-ultimate
       unstable.jetbrains.idea-community
       unstable.jenkins
-      # unstable.keybase-gui
+      unstable.keybase-gui
       unstable.keybase
       # unstable.teams
 
       # latest.legacyPackages.${pkgs.system}.docker
       # unstable.edgedb
     ];
+    services.kbfs.enable = true;
+    services.keybase.enable = true;
   }
+  
 
 

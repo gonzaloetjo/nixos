@@ -80,8 +80,6 @@
   
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.kbfs.enable = true;
-  services.keybase.enable = true;
   services.teamviewer.enable = true;
 
   # Kubernetes
