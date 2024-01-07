@@ -37,10 +37,27 @@
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.useDHCP = false;
-  networking.interfaces.wlo1.useDHCP = true;
-  networking.interfaces.wlp0s20f3.useDHCP = true;
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  # networking.useDHCP = false;
+  # networking.interfaces.wlo1.useDHCP = true;
+  # networking.interfaces.wlp0s20f3.useDHCP = true;
+  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+
+  networking = {
+    networkmanager.plugins = with pkgs; [ gnome3.networkmanager-openvpn ];
+    # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+    # Per-interface useDHCP will be mandatory in the future, so this generated config
+    # replicates the default behaviour.
+    useDHCP = false;
+    interfaces.wlo1.useDHCP = true;
+    # interfaces.wlp0s20f3.useDHCP = true;
+    networkmanager = {
+      enable = true;
+      dns = "none"; # To avoid network manager override my nameservers 
+    };
+    nameservers = [ "10.0.0.5" "1.1.1.1" ]; # DNS server
+    dhcpcd.extraConfig = "nohook resolv.conf";
+  };
+
 
   # Enable the X11 windowing system.
   services.xserver = {

@@ -1,3 +1,4 @@
 result/
 nix-shells/
 pkgs/
+*ovpn

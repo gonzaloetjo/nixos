@@ -4,6 +4,7 @@
     ansible
     # atom
     brave
+    busybox
     chromium
     curl
     direnv
@@ -95,11 +96,15 @@
 
 
   # Openvpn configuration
-  # services.openvpn.servers = {
-    #officeVPN  = { config = '' config /etc/nixos/openvpn/officeVPN.conf ''; };
-   # homeVPN    = { config = '' config /root/nixos/openvpn/homeVPN.conf ''; };
-   # serverVPN  = { config = '' config /root/nixos/openvpn/serverVPN.conf ''; };
-  #};
+  services.openvpn.servers = {
+    acloudVPN  = { 
+      config = '' config /home/getse/flakes/nixos/gonalo.ovpn '';
+      autoStart = false;
+      updateResolvConf = true;
+    };
+  # homeVPN    = { config = '' config /root/nixos/openvpn/homeVPN.conf ''; };
+  # serverVPN  = { config = '' config /root/nixos/openvpn/serverVPN.conf ''; };
+  };
 
   # Enable VirtualBox and networking setup
   # virtualisation.virtualbox.host.enable = true;
