@@ -14,13 +14,20 @@
       unstable.jenkins
       unstable.keybase-gui
       unstable.keybase
+      unstable.kbfs
       # unstable.teams
 
       # latest.legacyPackages.${pkgs.system}.docker
       # unstable.edgedb
     ];
-    services.kbfs.enable = true;
-    services.keybase.enable = true;
+
+    # services.kbfs.enable = true;
+    # services.keybase.enable = true;
+
+    # services.keybase = {
+    #   enable = true;
+    #   package = unstable.keybase;
+    # };  
   }
   
 
