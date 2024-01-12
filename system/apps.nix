@@ -8,7 +8,7 @@
     chromium
     curl
     direnv
-    exa
+    eza
     file                   # View information about a file
     flatpak
     firefox
@@ -25,6 +25,7 @@
     kubectl
     krb5
     libreoffice
+    lsd
     neovim
     nodejs
     # nodenv

@@ -8,6 +8,9 @@
     # Preserve the current directory of the shell across terminals
     # Note, tried `programs.zsh.vteIntegration` without sucess
     source ${pkgs.vte}/etc/profile.d/vte.sh
+    # Aliases
+    alias ls="lsd"
+    alias lll="eza"
     '';
     # source ${pkgs.gnome3.vte}/etc/profile.d/vte.sh
 
