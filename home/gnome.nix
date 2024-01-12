@@ -78,6 +78,12 @@ let normalUsers = builtins.filter(x: x.isNormalUser) config.users.users; in
       # Extensions (2/2)
       home.packages = if (builtins.hasAttr "extensions" config.gnome-manager) then builtins.map (x: pkgs.gnomeExtensions.${x}) config.gnome-manager.extensions else [];
 
+      # Comment manual out due to sourcehut being down
+      manual = {
+        manpages.enable = false;
+        html.enable = false;
+        json.enable = false;
+      };
     };
   };
 }
